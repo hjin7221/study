@@ -17,6 +17,8 @@ public class Hello {
 		// 단축키 [Ctrl + D]
 		System.out.println("모레은 목요일");
 		
+		// 테스트용 주석
+		
 		// 실행 취소의 원복 (Redo)
 		// 단축키 [Ctrl + Y]
 		System.out.println();

@@ -26,7 +26,7 @@ public class BoardDB {
 		}
 	}
 	// 보드 디비 넘버 올리기 
-	public void addBoard(Board board) {
+	public void addBoarding(Board board) {
 		board.setNo(boardList.size() + 1);
 		boardList.add(board);
 	}
