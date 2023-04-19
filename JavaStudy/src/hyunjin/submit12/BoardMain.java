@@ -11,16 +11,17 @@ public class BoardMain {
 
 		Scanner scan = new Scanner(System.in);
 
-		BoardDB boardDB = BoardDB.getInstance();
+		BoardDB boardDBase = BoardDB.getInstance();
 
-		System.out.println("행동을 선택해주세요.");
-		System.out.println("1. 글 목록 | 2. 글 쓰기 | 3. 종료");
-		System.out.println(">>> ");
-		int command = Integer.parseInt(scan.nextLine());
+		
 		while (true) {
+			System.out.println("행동을 선택해주세요.");
+			System.out.println("1. 글 목록 | 2. 글 쓰기 | 3. 종료");
+			System.out.print(">>> ");
+			int command = Integer.parseInt(scan.nextLine());
 			if (command == 1) {
 				// TODO 글목록
-				boardDB.showBoardList();
+				boardDBase.showBoardList();
 			} else if (command == 2) {
 				// TODO 글 쓰기
 				Date today = new Date();
@@ -31,8 +32,9 @@ public class BoardMain {
 				String title = scan.nextLine();
 				System.out.print("글 내용을 입력해주세요:");
 				String contents = scan.nextLine();
-				Board board = new Board(0, title, strToday, contents);
-				boardDB.addBoarding(board);
+				Board1 board = new Board1(0, title, strToday, contents);
+				boardDBase.addBoard(board);
+				
 			} else {
 				// 종료
 				System.out.println("종료합니다.");

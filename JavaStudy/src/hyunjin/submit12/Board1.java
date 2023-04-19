@@ -1,14 +1,14 @@
 package hyunjin.submit12;
 
-public class Board {
+public class Board1 {
 	private int no;
 	private String title;
 	private String postDate;
 	private String contents;
 	
-	public Board() {}
+	public Board1() {}
 	
-	public Board(int no, String title, String postDate, String contents) {
+	public Board1(int no, String title, String postDate, String contents) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -55,3 +55,4 @@ public class Board {
 	
 	
 }
+

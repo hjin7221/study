@@ -1,6 +1,6 @@
 package hyunjin.submit12;
 
-public class AudioBoard extends Board{
+public class AudioBoard extends Board1{
 	private String audioFile;
 	
 	public AudioBoard() {}

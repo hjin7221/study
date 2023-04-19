@@ -52,8 +52,7 @@ public class Board {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
-	
+
 	
 	
 	

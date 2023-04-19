@@ -33,7 +33,7 @@ public class BoardDB {
 		// board 객체 내부 no를 boardList.size() + 1 로 변경
 		board.setNo(boardList.size() + 1);
 		
-		boardList.add(board);
+//		boardList.add(board);
 	}
 	
 	// 

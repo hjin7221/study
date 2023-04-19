@@ -1,6 +1,6 @@
 package hyunjin.submit12;
 
-public class CartoonBoard extends Board{
+public class CartoonBoard extends Board1{
 
 	private String imgFile;
 	
