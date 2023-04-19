@@ -11,7 +11,7 @@ public class DateBoard {
 	
 	@Override
 	public String toString() {
-		return "DateBoard [title=" + title + ", date=" + date + "]";
+		return "제목: " + title + ", 게시일: " + date + "]";
 	}
 
 	public String getTitle() {
