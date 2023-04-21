@@ -40,7 +40,6 @@ public class DateBoardMain {
 		System.out.println("\n=============== 4번 문제 ================\n");
 		
 		Date today = new Date();
-		System.out.println(today.getTime());
 		System.out.println("최근 한달 내 작성된 게시");
 		for(int i = 0; i<dbList.size(); i++) {
 			Date postDate = sdf.parse(dbList.get(i).getDate());
@@ -50,17 +49,47 @@ public class DateBoardMain {
 			}
 		}
 		
+		//한달 전 날짜로 셋팅
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MONTH, -1);
+		
+		for(int i = 0; i < dbList.size(); i++) {
+			Date temp = sdf.parse(dbList.get(i).getDate());
+			
+			// temp를 밀리초로 나타낸 것이
+			// 한달 전 날짜를 밀리초로 나타낸 것보다 크면
+			// 최근 한달 내 데이터를 의미한다.
+			if(temp.getTime() > cal.getTime().getTime()) {
+				System.out.println(dbList.get(i));
+			}
+			
+		}
+		
+		
 		System.out.println("\n===============5번 문제 ================\n");
 		
-		Calendar cal = Calendar.getInstance();
-		int thisMonth = cal.get(Calendar.MONTH) + 1;
+		Calendar toMonth = Calendar.getInstance();
+		int thisYear = toMonth.get(Calendar.YEAR);
+		int thisMonth = toMonth.get(Calendar.MONTH);
 		
-		for (int i = 0; i<dbList.size(); i++) {
-			int a = Integer.parseInt(dbList.get(i).getDate().replace(".", "").substring(4,6));
-			if(a == thisMonth) {
+		for(int i =0; i < dbList.size(); i++) {
+			Date temp = sdf.parse(dbList.get(i).getDate());
+			Calendar tempCal = Calendar.getInstance();
+			tempCal.setTime(temp);
+			
+			int tempYear = tempCal.get(Calendar.YEAR);
+			int tempMonth = tempCal.get(Calendar.MONTH);
+			
+			if (thisYear == tempYear && thisMonth == tempMonth) {
 				System.out.println(dbList.get(i));
 			}
 		}
+//		for (int i = 0; i<dbList.size(); i++) {
+//			int a = Integer.parseInt(dbList.get(i).getDate().replace(".", "").substring(4,6));
+//			if(a == thisMonth && a == thisYear) {
+//				System.out.println(dbList.get(i));
+//			}
+//		}
 		
 		System.out.println("\n===============6번 문제 ================\n");
 		thisMonth = 02;
@@ -73,9 +102,30 @@ public class DateBoardMain {
 		
 		System.out.println("\n===============7번 문제 ================\n");
 		
-		for (int i = 0; i<dbList.size(); i++) {
-			int a = Integer.parseInt(dbList.get(i).getDate().replace(".", "").substring(0,8));
-			if( a < 20220321 && a > 20220214) {
+//		for (int i = 0; i<dbList.size(); i++) {
+//			int a = Integer.parseInt(dbList.get(i).getDate().replace(".", "").substring(0,8));
+//			if( a < 20220321 && a > 20220214) {
+//				System.out.println(dbList.get(i));
+//			}
+//		}
+		
+		String fromStr = "2023.02.14";
+		String toStr = "2023.03.21";
+		
+		sdf = new SimpleDateFormat("yyyy.MM.dd");
+		
+		Date fromDate = sdf.parse(fromStr);
+		Date toDate = sdf.parse(toStr);
+		
+		sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+		for(int i = 0; i < dbList.size(); i++) {
+			Date temp = sdf.parse(dbList.get(i).getDate());
+			
+			// temp를 밀리초로 바꾼 값이
+			// fromDate를 밀리초로 바꾼것보다 크고
+			// toDate를 밀리초로 바꾼것보다 작은 것
+			if(temp.getTime() >=fromDate.getTime()
+					&& temp.getTime() <= toDate.getTime()) {
 				System.out.println(dbList.get(i));
 			}
 		}
