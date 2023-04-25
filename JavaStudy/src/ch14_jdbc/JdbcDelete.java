@@ -80,7 +80,7 @@ public class JdbcDelete {
 				String stuName = rs.getString("stu_name");
 				int stuScore = rs.getInt("stu_score");
 
-				System.out.println("아이디: " + stuId + "비밀번호: " + stuPw + "이름: " + stuName + "점수: " + stuScore);
+				System.out.println("아이디: " + stuId + " 비밀번호: " + stuPw + " 이름: " + stuName + " 점수: " + stuScore);
 
 			}
 

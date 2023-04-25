@@ -57,7 +57,7 @@ public class JdbcInsert {
 			
 			// 쿼리문 실행
 			// insert,delete, update문은 
-			// ps.excuteUdate()로 실행
+			// ps.excuteUpdate()로 실행
 			
 			// cnt에는 'n행이 삽입 되었습니다.'의 n이 저장된다.
 			int cnt = ps.executeUpdate();
