@@ -75,8 +75,6 @@ public class StudentService {
 	public StudentVO login (StudentVO student) {
 		Connection conn = cp.getConnection();
 		StudentVO result = new StudentVO();
-		
-		
 		try {
 			result = dao.login(conn, student);
 		} catch (SQLException e) {
@@ -84,14 +82,21 @@ public class StudentService {
 		}finally {
 			cp.releaseConnection(conn);
 		}
-		
 		return result;
-		
-		
-		
 	}
 	
-	
+	// 학생 점수 증가 메소드
+	public void plusScore(String stuId) {
+		Connection conn = cp.getConnection();
+		
+		try {
+			dao.plusScore(conn, stuId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			cp.releaseConnection(conn);
+		}
+	}
 	
 	
 	
