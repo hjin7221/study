@@ -1,14 +1,15 @@
 package ch09_class.quiz;
 
 public class Movie {
-	
-	private String title;   // 영화 제목
-	private String quotes;  // 명대사
-	private String actors;  // 배우
-	private String word;     // 제목 초성
-	
-	public Movie () {}
-	
+
+	private String title; // 영화 제목
+	private String quotes; // 명대사
+	private String actors; // 배우
+	private String word; // 제목 초성
+
+	public Movie() {
+	}
+
 	public Movie(String title, String quotes, String actors, String word) {
 		super();
 		this.title = title;
@@ -53,14 +54,5 @@ public class Movie {
 	public void setWord(String word) {
 		this.word = word;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

@@ -1,13 +1,14 @@
 package ch09_class.homepage;
 
 public class Board {
-	private int no;          // 글 번호 
-	private String title;    // 글 제목
+	private int no; // 글 번호
+	private String title; // 글 제목
 	private String contents; // 글 내용
-	private String author;   // 작성자
-	
-	public Board () {}
-	
+	private String author; // 작성자
+
+	public Board() {
+	}
+
 	public Board(int no, String title, String contents, String author) {
 		super();
 		this.no = no;
@@ -52,13 +53,5 @@ public class Board {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

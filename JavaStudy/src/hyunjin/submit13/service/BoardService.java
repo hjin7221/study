@@ -51,6 +51,22 @@ public class BoardService {
 			cp.releaseConnection(conn);
 		}
 	}
+	
+	// 글조회
+	
+	public BoardVO getBoardList(BoardVO board) {
+		Connection conn = cp.getConnection();
 		
+		BoardVO result = new BoardVO();
+		
+		try {
+			result = dao.getBoardList(conn, board);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			cp.releaseConnection(conn);
+		}
+		return result;
+	}
 	
 }

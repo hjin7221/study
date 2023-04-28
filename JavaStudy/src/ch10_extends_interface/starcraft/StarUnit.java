@@ -5,9 +5,10 @@ public class StarUnit {
 	private int damage;
 	private int hp;
 	private int armor;
-	
-	public StarUnit() {}
-	
+
+	public StarUnit() {
+	}
+
 	public StarUnit(String name, int damage, int hp, int armor) {
 		super();
 		this.name = name;
@@ -15,17 +16,15 @@ public class StarUnit {
 		this.hp = hp;
 		this.armor = armor;
 	}
-	
+
 	public void move(int x, int y) {
 		System.out.println("x: " + x + ", y: " + y + "로 이동");
 	}
-	
+
 	public void attack(StarUnit unit) {
 		unit.setHp(unit.getHp() - damage);
 	}
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "StarUnit [name=" + name + ", damage=" + damage + ", hp=" + hp + ", armor=" + armor + "]";
@@ -62,9 +61,5 @@ public class StarUnit {
 	public void setArmor(int armor) {
 		this.armor = armor;
 	}
-	
-	
-	
-	
-	
+
 }

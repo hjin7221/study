@@ -3,10 +3,10 @@ package ch01_start;
 public class Hello {
 
 	public static void main(String[] args) {
-		
+
 		// 실행 단축키 [Ctrl + F11]
 		System.out.println("Hello World");
-		
+
 		// 코드라인 복사(Copy Lines)
 		// 단축키 [Ctrl + Alt + Down(방향키 아래)]
 		// 자동완성 단축키 [Ctrl + Space]
@@ -16,7 +16,7 @@ public class Hello {
 		// 코드라인 삭제(Delete Line)
 		// 단축키 [Ctrl + D]
 		System.out.println("모레은 목요일");
-		
+
 		// 실행 취소의 원복 (Redo)
 		// 단축키 [Ctrl + Y]
 		System.out.println();

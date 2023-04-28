@@ -279,66 +279,61 @@ public class ArrayMain {
 		// 16 17 18
 
 		System.out.println(threeDir[2][0][2]);
-		
+
 		System.out.println("\n========================================================\n");
-		
+
 		// 정렬
-		int[] numberArray = {23, 452, 13, 1, 67, 54};
-		
+		int[] numberArray = { 23, 452, 13, 1, 67, 54 };
+
 		// Arrays.sort(배열)
 		// 해당 배열을 오름차순 정렬
 		Arrays.sort(numberArray);
-		
+
 		printArray(numberArray);
-		
+
 		// 내림차순 정렬
 		// 이 방법은 참조타입 객체를 담은 배열일 경우에만 가능
 //		Array.sort(numberArray, Collections.reverseOrder());
-		
+
 		// 현재 1, 13, 23, 54, 67, 452
 		// 내림차순이면 452, 67, 54, 23, 13, 1
-		
+
 		// numberArray에 모든 요소를 -1을 곱함
 		// -1, -13, -23, -54, -67, -452
 		// Array.sor(numberArray) 적용
 		// -452, -67, -54, -23, -13, -1
 		// numberArray에 모든 요소에 -1을 곱
-		
+
 		for (int i = 0; i < numberArray.length; i++) {
 			numberArray[i] = numberArray[i] * -1;
 		}
-		
+
 		Arrays.sort(numberArray);
 		for (int i = 0; i < numberArray.length; i++) {
 			numberArray[i] = numberArray[i] * -1;
 		}
 		printArray(numberArray);
-		
+
 		System.out.println("\n========================================================\n");
-		
+
 		// 알고리즘으로 정렬
 		// 버블정렬
-		
 
-		
-		for(int k = 0; k < numberArray.length - 1; k++) {
+		for (int k = 0; k < numberArray.length - 1; k++) {
 			for (int i = 0; i < numberArray.length - 1; i++) {
 				// i > i+1 하면 오름차순
 				// i < i+1 하면 내림차순
-				if(numberArray[i] > numberArray[i+1]) {
+				if (numberArray[i] > numberArray[i + 1]) {
 					int t = numberArray[i];
 					numberArray[i] = numberArray[i + 1];
-					numberArray[i+1] = t;
+					numberArray[i + 1] = t;
 				}
 			}
 		}
-		
-		printArray(numberArray);
-		
-		
-		
-		}
 
+		printArray(numberArray);
+
+	}
 
 	public static void swap(int p_a, int p_b) {
 		int temp = p_a;

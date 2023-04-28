@@ -6,23 +6,22 @@ package ch10_extends_interface.simple;
 public class Parent {
 	private String name;
 	private int age;
-	
+
 	public Parent() {
 	}
-	
+
 	public Parent(String name, int age) {
 		// 부모 클래스의 기본 생성자
 		super();
 		this.name = name;
 		this.age = age;
 	}
-	
+
 	public void sayHello() {
 		System.out.println("어른이입니다.");
 	}
-	
 
-	// 부모클래스의 메소드를 자식 클래스에서 
+	// 부모클래스의 메소드를 자식 클래스에서
 	// 재정의(Override)해서 사용
 	@Override
 	public String toString() {
@@ -44,9 +43,5 @@ public class Parent {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	
-	
-	
-	
+
 }

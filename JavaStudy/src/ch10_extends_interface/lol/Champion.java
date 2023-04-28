@@ -4,9 +4,10 @@ public class Champion {
 	String name;
 	int damage;
 	int hp;
-	
-	public Champion() {}
-	
+
+	public Champion() {
+	}
+
 	public Champion(String name, int damage, int hp) {
 		super();
 		this.name = name;
@@ -14,10 +15,4 @@ public class Champion {
 		this.hp = hp;
 	}
 
-	
-	
-	
-	
-	
-	
 }

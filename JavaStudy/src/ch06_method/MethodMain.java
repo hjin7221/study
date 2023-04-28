@@ -96,19 +96,19 @@ public class MethodMain {
 		// 2
 		// 1
 		recursionPrint(5);
-		
+
 		System.out.println("\n=====================================\n");
-		
+
 		// 팩토리얼
 		long no = factorial(5);
 		System.out.println(no);
-		
+
 		// 재귀함수를 이용한 팩토리얼
 		no = recFactorial(5);
 		System.out.println(no);
-		
+
 	} // main 끝
-	
+
 	// 메소드 선언
 	// [접근제어자 static] 리턴타입 메소드명(파라미터) { }
 	// void 는 리턴타입이 없는 메소드
@@ -301,20 +301,20 @@ public class MethodMain {
 		}
 		return lrst;
 	}
-	
+
 	public static long recFactorial(int num) {
-		
+
 		if (num == 1) {
 			return 1;
 		}
-		return num * recFactorial(num-1);
+		return num * recFactorial(num - 1);
 		// 5를 넣었다면
 		// 5 * recFactorial(4)
 		// 5 * 4 * recFactorial(3)
 		// 5 * 4 * 3 * recFactorial(2)
 		// 5 * 4 * 3 * 2 * recFactorial(1)
 		// 5 * 4 * 3 * 2 * 1
-		
+
 	}
-	
+
 }

@@ -1,7 +1,7 @@
 package ch10_extends_interface.lol;
 
 public class Shen extends Champion implements SkillInterface {
-	
+
 	public Shen() {
 		super();
 	}
@@ -29,17 +29,5 @@ public class Shen extends Champion implements SkillInterface {
 	public void skillR() {
 		System.out.println("아군에게 돌진한다.");
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

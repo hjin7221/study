@@ -2,7 +2,6 @@ package ch10_extends_interface.lol;
 
 public class Amumu extends Champion implements SkillInterface {
 
-	
 	public Amumu() {
 		super();
 	}
@@ -26,10 +25,5 @@ public class Amumu extends Champion implements SkillInterface {
 	@Override
 	public void skillR() {
 	}
-	
-	
-	
-	
-	
-	
+
 }

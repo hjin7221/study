@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import ch14_jdbc_jsp.vo.StudentVO;
 import hyunjin.submit13.vo.BoardVO;
 import hyunjin.submit13.vo.MemberVO;
 
@@ -34,7 +33,7 @@ public class BoardDAO {
 		query.append("	 ,create_date		");
 		query.append("FROM					");
 		query.append("	  board				");
-		query.append("ORDER BY no DESC		");
+		query.append("ORDER BY no 			");
 
 		PreparedStatement ps = conn.prepareStatement(query.toString());
 
@@ -94,5 +93,75 @@ public class BoardDAO {
 		return cnt;
 
 	}
+	
+	// 글조회 
+	
+	public BoardVO getBoardList(Connection conn, BoardVO board) throws SQLException {
+		StringBuffer query = new StringBuffer();
+		query.append("SELECT 				");
+		query.append("	  title				");
+		query.append("	 ,mem_id			");
+		query.append("	 ,create_date		");
+		query.append("	 ,contents			");
+		query.append("FROM					");
+		query.append("	  board				");
+		query.append("WHERE 1=1				");
+		query.append("	AND no = ?			");
+		
 
+		PreparedStatement ps = conn.prepareStatement(query.toString());
+		ps.setInt(1, board.getNo());
+		
+		ResultSet rs = ps.executeQuery();
+
+		BoardVO result = new BoardVO();
+
+		while (rs.next()) {
+			result.setTitle(rs.getString("title"));
+			result.setAuthor(rs.getString("mem_id"));
+			result.setCreate_date(rs.getString("create_date"));
+			result.setContents(rs.getString("contents"));
+		}
+
+		rs.close();
+		ps.close();
+
+		return result;
+	}
+	
+	
+//	public ArrayList<BoardVO> getBoardList(Connection conn, BoardVO board) throws SQLException {
+//		StringBuffer query = new StringBuffer();
+//		query.append("SELECT 				");
+//		query.append("	  title				");
+//		query.append("	 ,mem_id			");
+//		query.append("	 ,create_date		");
+//		query.append("	 ,contents			");
+//		query.append("FROM					");
+//		query.append("	  board				");
+//		query.append("WHERE 1=1				");
+//		query.append("	AND no = ?			");
+//		
+//
+//		PreparedStatement ps = conn.prepareStatement(query.toString());
+//		ps.setInt(1, board.getNo());
+//		
+//		ResultSet rs = ps.executeQuery();
+//
+//		ArrayList<BoardVO> result = new ArrayList<>();
+//
+//		while (rs.next()) {
+//			BoardVO temp = new BoardVO();
+//			temp.setTitle(rs.getString("title"));
+//			temp.setAuthor(rs.getString("mem_id"));
+//			temp.setCreate_date(rs.getString("create_date"));
+//			temp.setContents(rs.getString("contents"));
+//			result.add(temp);
+//		}
+//
+//		rs.close();
+//		ps.close();
+//
+//		return result;
+//	}
 }

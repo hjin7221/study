@@ -39,15 +39,15 @@ public class BoardMain {
 				
 				ArrayList<MemberVO> temp = memService.getMemList();
 				
+				MemberVO mem = new MemberVO(id,pw);
 				for (int i =0; i<temp.size(); i++) {
-					if(id == (temp.get(i).getMemId())) {
+					if(id.equals(temp.get(i).getMemId())) {
 						System.out.println("중복된 아이디입니다.");
-						break;
-					}else {
-						MemberVO mem = new MemberVO(id,pw);
-						memService.registMember(mem);
+						return;
 					}
 				}
+				memService.registMember(mem);
+				
 				//TODO 회원가입시 동일 아이디 보유시 가입안되게끔
 				
 			}else if (command == 2) {
@@ -67,6 +67,10 @@ public class BoardMain {
 					System.out.println("로그인 되었습니다.");
 					System.out.println();
 					while(true) {
+						ArrayList<BoardVO> boardList = bdService.showBoardList();
+						for(int i = 0; i < boardList.size(); i++) {
+							System.out.println(boardList.get(i));
+						}
 						System.out.println("행동을 선택해주세요.");
 						System.out.println("1. 글쓰기 | 2. 글조회 | 3. 로그아웃");
 						System.out.println(">>> ");
@@ -90,9 +94,20 @@ public class BoardMain {
 							
 						}else if(select == 2) {
 							//TODO 글조회
-							ArrayList<BoardVO> boardList = bdService.showBoardList();
-							for(int i = 0; i < boardList.size(); i++) {
-								System.out.println(boardList.get(i));
+							ArrayList<BoardVO> bdList = bdService.showBoardList();
+							System.out.print("글 번호를 입력해주세요: ");
+							int a = Integer.parseInt(scan.nextLine());
+							
+							for ( int i = 0; i< bdList.size(); i++) {
+								if(bdList.get(i).getNo() == a) {
+									BoardVO b = bdService.getBoardList(bdList.get(i));
+									System.out.println("========================");
+									System.out.println("제목: "+ b.getTitle());
+									System.out.println("작성자: "+ b.getAuthor());
+									System.out.println("작성일: "+ b.getCreate_date());
+									System.out.println("글내용: " + b.getContents());
+									System.out.println("========================");
+								}
 							}
 						}else if(select == 3) {
 							//TODO 로그아웃
