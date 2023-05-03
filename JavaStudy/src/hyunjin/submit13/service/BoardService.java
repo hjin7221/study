@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import ch14_jdbc_jsp.context.ConnectionPool;
+import hyunjin.submit14.context.ConnectionPool;
 import hyunjin.submit13.dao.BoardDAO;
 import hyunjin.submit13.vo.BoardVO;
 

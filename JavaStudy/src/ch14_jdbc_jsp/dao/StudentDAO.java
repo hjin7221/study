@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import ch14_jdbc_jsp.context.ConnectionPool;
 import ch14_jdbc_jsp.vo.StudentVO;
 
 public class StudentDAO {
