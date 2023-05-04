@@ -12,9 +12,9 @@ public class ConnectionFactory {
 	
 	private String driver;
 	private String url;
-	private String id;
-	private String pw;
-	private int maxConn;
+	private String id ;
+	private String pw ;
+	private int maxConn ;
 	
 	private static ConnectionFactory instance = new ConnectionFactory();
 	
@@ -26,7 +26,7 @@ public class ConnectionFactory {
 		Properties prop = new Properties();
 		try {
 			prop.load(reader);
-			
+	
 			driver = prop.getProperty("driver");
 			url = prop.getProperty("url");
 			id = prop.getProperty("id");
@@ -52,6 +52,7 @@ public class ConnectionFactory {
 	public static ConnectionFactory getInstance() {
 		return instance;
 	}
+	
 	
 	public Connection getConnection() {
 		Connection conn = null;
