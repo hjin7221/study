@@ -1,10 +1,8 @@
 package ch07_array;
 
-import java.lang.reflect.Array;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class ArrayMain {
 

@@ -19,6 +19,8 @@ public class FinalMain {
 		Scanner scan = new Scanner(System.in);
 		
 		while(true) {
+			System.out.println("가계부 시스템에 접속하신걸 환영합니다.");
+			System.out.println("version : 1.0");
 			System.out.println("하단 메뉴중 선택 해주세요.");
 			System.out.println("1. 로그인 | 2. 회원가입 | 3. 아이디/비밀번호 찾기 | 4. 종료");
 			System.out.print(">>> ");
@@ -47,7 +49,6 @@ public class FinalMain {
 				if(login.getMem_id() != null) {
 					while(true) {
 						System.out.println(login.getMem_name() + "님 어서오세요." );
-						System.out.println("가계부 시스템에 접속하신걸 환영합니다.");
 						System.out.println();
 						System.out.println(login.getMem_name() + "의 이달 현황");
 						MoneyBookVO show = new MoneyBookVO();
@@ -309,7 +310,7 @@ public class FinalMain {
 				System.out.print("아이디: ");
 				String id = scan.nextLine();
 				ArrayList<MembersVO> temp = memService.showMembersList();
-				for(int i = 0; i<temp.size(); i++) {
+				for(int i = 0; i<=temp.size(); i++) {
 					if(temp.get(i).getMem_id().equals(id)) {
 						System.out.println("중복된 아이디 입니다.");
 						break;

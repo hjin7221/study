@@ -10,6 +10,6 @@ public class Practice {
 		String a = scan.nextLine();
 		String b = scan.nextLine();
 		System.out.println(Integer.parseInt(a) + Integer.parseInt(b));
-
+		scan.close();
 	}
 }

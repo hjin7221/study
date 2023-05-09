@@ -34,7 +34,7 @@ public class VariableMain {
 		// 상수(Constant)의 선언
 		// 값이 항상 같은 녀석
 		// 값이 바뀌면 안되는 녀석에 대해 상수로 선언
-		final double MATH_PI = 3.14;
+		final double math_pi = 3.14;
 
 		// 상수는 값을 바꿀 수 없다.
 //		MATH_PI = 4.23;

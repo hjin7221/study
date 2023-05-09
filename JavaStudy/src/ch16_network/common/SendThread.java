@@ -44,8 +44,14 @@ public class SendThread extends Thread {
 					writer.flush();
 					break;
 				}
-
+				if(msg.equals("안녕")) {
+					msg += " (^o^)/";
+				}else if(msg.equals("ㅠㅠ")) {
+					msg += " (T_T)";
+				}
+				
 				writer.println(name + ": " + msg);
+				
 				writer.flush();
 			}
 
