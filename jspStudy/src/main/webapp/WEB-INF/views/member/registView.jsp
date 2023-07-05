@@ -30,7 +30,7 @@
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <form id="contactForm" action="<c:url value='/registDo'/>">
+                        <form id="contactForm" action="<c:url value='/registDo'/>" method="POST">
                             <!-- ID input-->
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="id" name="memId" type="text" placeholder="Enter your ID..." />
@@ -38,7 +38,7 @@
                             </div>
                             <!-- PW input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="pw" name="pw" type="text" placeholder="Enter your Password..." />
+                                <input class="form-control" id="pw" name="pw" type="password" placeholder="Enter your Password..." />
                                 <label for="pw">비밀번호</label>
                             </div>
                             <!-- Name input-->
