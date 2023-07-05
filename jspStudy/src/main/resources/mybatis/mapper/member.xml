@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.jsp.member.dao.IMemberDAO">
+
+	<!-- mybatis-config.xml에서 typeAlias로 MemberVO의 풀경로 생략 가능 -->
+	<insert id="registMember" parameterType="com.study.jsp.member.vo.MemberVO">
+		INSERT INTO members (
+		    mem_id
+		    ,mem_pw
+		    ,mem_name
+		) VALUES (
+		    #{memId}
+		    ,#{memPw}
+		    ,#{memName}
+		)
+	</insert>
+	
+	<select id="loginMember" parameterType="MemberVO" resultType="MemberVO">
+		SELECT 
+		    mem_id
+		    ,mem_pw
+		    ,mem_name
+		FROM members
+		WHERE 1=1
+		 AND mem_id = #{memId}
+		 AND mem_pw = #{memPw}
+	</select>
+</mapper>
