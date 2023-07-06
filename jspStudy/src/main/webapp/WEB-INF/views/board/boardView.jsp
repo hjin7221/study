@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>로그인</title>
+        <title>회원게시판</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath }/assets/favicon.ico" />
     </head>
@@ -20,7 +20,7 @@
         <section class="page-section mt-5" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">로그인</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">회원 게시판</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -28,29 +28,32 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Contact Section Form-->
+                <!-- bootstrap -->
+                <!-- div class row 붙이면 div class col 붙어 있는것들에 대해  한 행(12) 안에서 나뉜다.-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <form id="contactForm" action="<c:url value='/loginDo'/>" method="POST">
-                            <!-- ID input-->
-                            <div class="form-floating mb-3">
-                            	<!-- 쿠키에 rememberId 키값이 존재하면 input 태그 value에 해당 아이디 적어주기 -->
-                                <input class="form-control" id="id" name="memId" type="text" value="${cookie.rememberId.value }" placeholder="Enter your ID..." />
-                                <label for="id">아이디</label>
-                            </div>
-                            <!-- PW input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="pw" name="memPw" type="password" placeholder="Enter your Password..." />
-                                <label for="pw">비밀번호</label>
-                            </div>
-                            <div class="form-check">
-                            	<!-- 쿠키에 rememberId 키값이 존재하면 checked 상태 -->
-                                <input class="form-check-input" id="rememberCheck" name="rememberId" type="checkbox" ${cookie.rememberId == null ? "" : "checked" }/>
-                                <label class="form-check-label" for="rememberCheck">아이디 기억하기</label>
-                            </div>
-                            
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Login</button>
-                        </form>
+                       <table class="table">
+                       		<thead>
+                       			<th>글 번호</th>
+                       			<th>제목</th>
+                       			<th>작성자</th>
+                       			<th>날짜</th>
+                       		</thead>
+                       		
+                       		<c:forEach items="${boardList }" var="board">
+                       			<tr>
+	                      			<td>${board.boardNo }</td>
+	                      			<td>${board.boardTitle }</td>
+	                      			<td>${board.memName }</td>
+	                      			<td>${board.boardDate }</td>
+	                      		</tr>
+                       		</c:forEach>
+                       </table>
+                    </div>
+                    <div class="col-lg-8 col-xl-7 d-flex justify-content-end">
+                    	<a href="<c:url value='/boardWriteView'/>">
+	                    	<button type="button" class="btn btn-danger" >글쓰기</button>
+                    	</a>
                     </div>
                 </div>
             </div>

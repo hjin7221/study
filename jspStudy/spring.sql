@@ -13,6 +13,7 @@ CREATE TABLE members (
     ,mem_pw VARCHAR2(100)
     ,mem_name VARCHAR2(100)
 );
+ALTER TABLE members ADD CONSTRAINT pk_member PRIMARY KEY(mem_id);
 
 INSERT INTO members (
     mem_id
@@ -42,8 +43,48 @@ WHERE 1=1
  AND mem_pw = '123a'
  ;
 
+-- 2번째 
 
+CREATE TABLE boards (
+    board_no NUMBER(10)
+    ,board_title VARCHAR2(1000)
+    ,board_content VARCHAR2(4000)
+    ,mem_id VARCHAR2(100)
+    ,board_date DATE
+);
+commit;
+ALTER TABLE boards ADD CONSTRAINT fk_boards FOREIGN KEY(mem_id) REFERENCES members(mem_id);
 
+-- SELECT COUNT(*) + 1
+-- FROM boards;
+
+CREATE SEQUENCE seq_boards;
+
+INSERT INTO boards (
+    board_no
+    , board_title
+    , board_content
+    , mem_id
+    , board_date
+) VALUES (
+    seq_boards.nextval
+    , '세번째 게시물 제목'
+    , '무야호~'
+    , 'a001'
+    , SYSDATE
+);
+commit;
+
+SELECT
+    a.board_no
+  , a.board_title
+  , a.board_content
+  , a.mem_id
+  , TO_CHAR(a.board_date, 'MM/DD HH24:MI') as board_date
+  , b.mem_name
+FROM boards a , members b
+WHERE a.mem_id = b.mem_id
+ORDER BY board_no desc;
 
 
 

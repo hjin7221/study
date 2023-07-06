@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.jsp.board.dao.IBoardDAO">
+	
+	<select id="getBoardList" resultType="com.study.jsp.board.vo.BoardVO">
+		SELECT
+		    a.board_no
+		  , a.board_title
+		  , a.board_content
+		  , a.mem_id
+		  , TO_CHAR(a.board_date, 'MM/DD HH24:MI') as board_date
+		  , b.mem_name
+		FROM boards a , members b
+		WHERE a.mem_id = b.mem_id
+		ORDER BY board_no DESC
+	</select>
+
+</mapper>
