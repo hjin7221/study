@@ -34,16 +34,18 @@
                     <div class="col-lg-8 col-xl-7">
                        <table class="table">
                        		<thead>
-                       			<th>글 번호</th>
-                       			<th>제목</th>
-                       			<th>작성자</th>
-                       			<th>날짜</th>
+                       			<tr>
+	                       			<th>글 번호</th>
+	                       			<th>제목</th>
+	                       			<th>작성자</th>
+	                       			<th>날짜</th>
+                       			</tr>
                        		</thead>
                        		
                        		<c:forEach items="${boardList }" var="board">
                        			<tr>
 	                      			<td>${board.boardNo }</td>
-	                      			<td>${board.boardTitle }</td>
+	                      			<td><a href="${pageContext.request.contextPath }/boardDetailView?boardNo=${board.boardNo}">${board.boardTitle }</a></td>
 	                      			<td>${board.memName }</td>
 	                      			<td>${board.boardDate }</td>
 	                      		</tr>

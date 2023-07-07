@@ -9,10 +9,12 @@
 		    mem_id
 		    ,mem_pw
 		    ,mem_name
+		    ,del_yn
 		) VALUES (
 		    #{memId}
 		    ,#{memPw}
 		    ,#{memName}
+		    ,'N'
 		)
 	</insert>
 	
@@ -25,5 +27,19 @@
 		WHERE 1=1
 		 AND mem_id = #{memId}
 		 AND mem_pw = #{memPw}
+		 AND del_yn = 'N'
 	</select>
+	
+	<update id="editMember" parameterType="com.study.jsp.member.vo.MemberVO">
+		UPDATE members
+		SET mem_pw = #{memPw}
+		    , mem_name = #{memName}
+		WHERE mem_id = #{memId}
+	</update>
+	
+	<update id="delMember" parameterType="com.study.jsp.member.vo.MemberVO">
+		UPDATE members
+		SET del_yn = 'Y'
+		WHERE mem_id = #{memId}
+	</update>
 </mapper>

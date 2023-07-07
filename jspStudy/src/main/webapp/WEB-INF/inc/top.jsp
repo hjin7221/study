@@ -31,11 +31,27 @@
                         <!-- 로그인 되어있을때 보여줄 부분 -->
                         <!-- 세션 객체 중 key 값으로 login이 저장되어있는지 확인 -->
                         <c:if test="${sessionScope.login != null }">
-	                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">${sessionScope.login.memId }님</a></li>
-	                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<c:url value='/logoutDo'/>">로그아웃</a></li>
+	                        <li class="nav-item mx-0 mx-lg-1">
+	                        	<form action="${pageContext.request.contextPath }/memberEditView" method="POST" id="editForm">
+		                        	<div class="dropdown nav-link py-3 px-0 px-lg-3 rounded">
+									  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+									    ${sessionScope.login.memName }님
+									  </button>
+									  <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+									    <li><a class="dropdown-item" href="#">마이페이지</a></li>
+						                <li><a class="dropdown-item" href="#" onclick="fn_edit()">수정</a></li>
+						                <li><a class="dropdown-item" href="<c:url value='/logoutDo'/>">로그아웃</a></li>
+									  </ul>
+									</div>
+	                        	</form>
+	                        </li>
                         </c:if>
-                        
                     </ul>
                 </div>
             </div>
         </nav>
+        <script type="text/javascript">
+			function fn_edit() {
+				document.getElementById("editForm").submit()
+			}
+		</script>

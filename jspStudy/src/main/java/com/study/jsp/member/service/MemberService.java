@@ -31,4 +31,15 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	// 회원 정보 수정
+	public void editMember(MemberVO member){
+		System.out.println("memberService :"+member);
+		dao.editMember(member);
+	}
+	
+	// 회원 탈퇴
+	public void delMember(String memId) {
+		dao.delMember(memId);
+	}
 }

@@ -47,7 +47,8 @@
                                 <input class="form-check-input" id="rememberCheck" name="rememberId" type="checkbox" ${cookie.rememberId == null ? "" : "checked" }/>
                                 <label class="form-check-label" for="rememberCheck">아이디 기억하기</label>
                             </div>
-                            
+                            <!-- 로그인 이전 페이지 링크 기억용 -->
+                            <input name="fromUrl" value="${fromUrl }" type="hidden">
                             <!-- Submit Button-->
                             <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Login</button>
                         </form>
