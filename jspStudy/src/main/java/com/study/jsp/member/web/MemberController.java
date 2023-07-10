@@ -32,7 +32,7 @@ public class MemberController {
 	}
 	
 	// 회원가입 처리 메소드
-	@RequestMapping("registDo")
+	@RequestMapping("/registDo")
 	public String registDo(HttpServletRequest request) {
 		
 		try {
@@ -143,21 +143,31 @@ public class MemberController {
 		return "/member/memberEditView";
 	}
 	
-	// 회원 수정 처리 메소드
-	@PostMapping("memberEditDo")
-	public String memberEditDo(MemberVO member, HttpSession session, Model model) {
-		System.out.println(member);
+	// 마이페이지 화면 응답
+	@RequestMapping("/myPage")
+	public String myPage() {
+		return "member/myPage";
+	}
 	
+	
+	
+	// 회원 수정 처리 메소드
+	@PostMapping("/memberEditDo")
+	public String memberEditDo(MemberVO member, HttpSession session) {
+		System.out.println(member);
+		
 		memberService.editMember(member);
 		session.setAttribute("login", member);
-		System.out.println(session.getAttribute("login"));
-		return "redirect:/";
+		
+		return "redirect:/myPage";
 	}
 	
 	// 회원 탈퇴
-	@PostMapping("delMember")
-	public String delMember(@RequestParam("memId") String memId, HttpSession session) {
+	@PostMapping("/memberDelDo")
+	public String delMember(HttpSession session) {
 		
+		MemberVO member = (MemberVO) session.getAttribute("login");
+		String memId = member.getMemId();
 		System.out.println("delMember memID:" + memId);
 		
 		memberService.delMember(memId);

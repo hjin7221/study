@@ -37,9 +37,8 @@
 		WHERE mem_id = #{memId}
 	</update>
 	
-	<update id="delMember" parameterType="com.study.jsp.member.vo.MemberVO">
-		UPDATE members
-		SET del_yn = 'Y'
+	<delete id="delMember">
+		DELETE members
 		WHERE mem_id = #{memId}
-	</update>
+	</delete>
 </mapper>
